@@ -10,12 +10,17 @@ export const ActionButton = ({ text }) => {
 
 const styles = {
   container: {
-    position: 'absolute',
-    right: '0px',
-    top: '55px',
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+    textTransform: 'uppercase',
+    fontWeight: 'bold',
+    fontSize: '16px',
     width: '100px',
+    height: '40px',
+    marginBottom: '10px',
     backgroundColor: '#fecf9d',
     borderBottomLeftRadius: '10px',
-    borderTopLeftRadius: '10px',
-  },
+    borderTopLeftRadius: '10px'
+  }
 }

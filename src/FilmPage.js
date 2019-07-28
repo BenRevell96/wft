@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import StarRatings from 'react-star-ratings'
 
-import { Drawer } from './components'
+import { Drawer, Heading, useFetch } from './components'
+import { GenreList } from './components/GenreList'
 
 const FilmPage = ({ id = 0 }) => {
   const [film, setFilm] = useState({})
@@ -30,31 +31,36 @@ const FilmPage = ({ id = 0 }) => {
     vote_average,
     vote_count,
     release_date,
-    overview,
+    overview
   } = film
+
   console.log({ film })
   return (
     <div style={styles.container}>
       <div style={styles.innerContainer}>
-        <h1>{title}</h1>
-        <h2>({release_date})</h2>
+        <Heading Type={'h1'} style={styles.title} text={title} />
+        <Heading
+          Type={'h2'}
+          style={styles.releaseDate}
+          text={`(${release_date})`}
+        />
         <div style={styles.imageContainer}>
-          <img style={styles.poster} src={poster} alt="poster for film" />
+          <img style={styles.poster} src={poster} alt='poster for film' />
         </div>
       </div>
       <div style={styles.infoContainer}>
-        <h3>{title}</h3>
+        <GenreList genres={genres || []} />
         <div style={styles.reviewContainer}>
           {vote_average && (
             <StarRatings
               rating={vote_average / 2}
-              starDimension="15px"
-              starSpacing="1px"
-              starRatedColor="#4d4671"
-              name="rating"
+              starDimension='15px'
+              starSpacing='1px'
+              starRatedColor='#fecf9d'
+              name='rating'
             />
           )}
-          <p>{`${vote_count} reviews`}</p>
+          <p style={styles.reviews}>{`${vote_count} reviews`}</p>
         </div>
       </div>
       <Drawer overview={overview} />
@@ -63,26 +69,46 @@ const FilmPage = ({ id = 0 }) => {
 }
 
 const styles = {
-  container: {
-    width: '100%',
-  },
+  container: {},
   innerContainer: {
-    textAlign: 'center',
+    margin: '15px',
+    textAlign: 'center'
   },
   imageContainer: {
+    margin: '10px',
     textAlign: 'center',
+    padding: '10px'
   },
-
   poster: {
-    maxHeight: '320px',
+    maxHeight: '320px'
   },
-  infoContainer: {},
+  title: {
+    color: '#f3f3f3',
+    fontSize: '20px',
+    margin: '0px'
+  },
+  releaseDate: {
+    color: '#c4c2ba',
+    fontSize: '14px',
+    margin: '0px'
+  },
+  subtitle: {
+    margin: '0px',
+    fontSize: '16px'
+  },
+  infoContainer: {
+    margin: '15px'
+  },
   reviewContainer: {
+    margin: '10px 5px',
     display: 'flex',
-    alignItems: 'center',
-    width: '180px',
-    justifyContent: 'space-between',
+    width: '200px',
+    justifyContent: 'space-between'
   },
+  reviews: {
+    color: '#f3f3f3',
+    margin: '0px'
+  }
 }
 
 export default FilmPage

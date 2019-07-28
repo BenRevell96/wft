@@ -31,8 +31,8 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     flexWrap: 'wrap',
-    padding: '5px',
-  },
+    padding: '5px'
+  }
 }
 
 export default App

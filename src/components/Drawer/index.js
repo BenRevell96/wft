@@ -7,28 +7,34 @@ export const Drawer = ({ overview }) => {
       <div style={styles.overviewContainer}>
         <p>{overview}</p>
       </div>
-      <ActionButton text={'vote'} />
+      <div style={styles.actionButtonContainer}>
+        <ActionButton text={'vote ✅'} />
+        <ActionButton text={'veto ❌'} />
+      </div>
     </div>
   )
 }
 
 const styles = {
   overviewContainer: {
-    width: '200px',
-    height: '200px',
-    marginLeft: '30px',
+    width: '220px',
+    minHeight: '180px',
+    marginLeft: '25px',
     overflow: 'scroll',
-    color: '#fff',
+    color: '#fff'
   },
   drawerContainer: {
-    position: 'fixed',
+    position: 'relative',
     bottom: '0',
-    height: '200px',
     backgroundColor: '#4d4671',
     width: '100%',
     borderTopLeftRadius: '50px',
     borderTopRightRadius: '50px',
-    marginLeft: '-8px',
-    boxShadow: '2px 0px 10px rgba(0,0,0,0.3)',
+    boxShadow: '2px 0px 10px rgba(0,0,0,0.3)'
   },
+  actionButtonContainer: {
+    position: 'absolute',
+    right: '0px',
+    top: '45px'
+  }
 }

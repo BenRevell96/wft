@@ -1,15 +1,15 @@
 import React from 'react'
 
-import FilmList from '../src/FilmList'
+import SearchForm from '../src/SearchForm'
 import { GlobalHtml } from '../src/components'
 
-const Home = () => {
+const Search = () => {
   return (
     <>
       <GlobalHtml />
-      <FilmList />
+      <SearchForm />
     </>
   )
 }
 
-export default Home
+export default Search
